@@ -10,6 +10,14 @@ def is_palindrome(string):
     return string[::-1].casefold() == string.casefold()
 
 
+def sentence_palindrome(sentence):
+    string = ""
+    for char in sentence:
+        if str.isalpha(char):
+            string += char
+    return is_palindrome(string)
+
+
 def fibonacci(n):
     """
     Return the `n`th Fibonacci number, for positive `n`.
@@ -82,4 +90,17 @@ def sum_numbers(*args: float) -> float:
     return res
 
 
+def get_integer(prompt):
+    while True:
+        temp = input(prompt)
+        if temp.isnumeric():
+            return int(temp)
+        #else:
+        print('{0} is not a valid number'.format(temp))
+
+
+# MAIN DRIVER
+print(get_integer("Type number here: "))
+print(sentence_palindrome("I am 1 ma "))
 print(sum_numbers(1, 2, 3))
+
